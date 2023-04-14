@@ -7,7 +7,14 @@ const app = express();
 app.use(express.json());
 
 // Write your code here
-
+mongoose
+  .connect(process.env.DATABASE_URL, {
+    useNewUrlParser: true
+  })
+  .then(() => {
+    console.log("Connected to MongoDB!")
+  })
+  .catch(error => console.error(error.message));
 
 
 app.use("/users", usersRouter);
