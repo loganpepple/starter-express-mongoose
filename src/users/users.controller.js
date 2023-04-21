@@ -30,7 +30,7 @@ async function create(req, res) {
 
 async function userExists(req, res, next) {
   const { userID } = req.params;
-  const foundUser = await User.findOne({ _id: userId });
+  const foundUser = await User.findOne({ _id: userID });
   if (foundUser) {
     res.locals.user = foundUser;
     return next();
